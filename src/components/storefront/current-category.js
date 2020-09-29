@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-function CurrentCategory(props) {
+function ActiveCategory(props) {
 
   const catObj = props.categories.filter(category => category.normalizedName === props.activeCategory)
 
@@ -21,4 +21,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps) (CurrentCategory);
+export default connect(mapStateToProps) (ActiveCategory);
