@@ -35,6 +35,13 @@ const initialState = {
       inventoryCount: 20,
     },
     {
+      category: 'socks',
+      name: 'Socks for Birkenstocks',
+      description: 'Tall socks with extra toe padding',
+      price: '10.99',
+      inventoryCount: 20,
+    },
+    {
       category: 'plants',
       name: 'Fern',
       description: 'Fun little maidenhair fern for your home',

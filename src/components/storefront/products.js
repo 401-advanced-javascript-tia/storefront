@@ -5,10 +5,6 @@ function Products(props) {
 
   console.log('#### props in Products module:', props);
 
-  // const props = {
-  //   products: 'Seeded stuff in storefront/products.js',
-  // }
-
   const productList = props.state.products.filter(product => product.category === props.state.activeCategory);
 
   // productList is now an array of objects that have that category name
@@ -25,42 +21,20 @@ function Products(props) {
 
     {productList.map(product => (
       <>
+      <br/>
 
-      <li>{product.name}</li>
-      <li>{product.description}</li>
+      <li key={product.name}>{product.name}</li>
+      <li key={product.description}>{product.description}</li>
 
       </>
-      
+
       ))}
 
     
     </ul>
 
-
-
-{/* 
-    <ul>
-    
-      {props.state.products.map(product => (
-    
-        if(product.category === props.state.activeCategory) {
-      
-          <li key={}>{product}</li>
-      
-        }
-    
-      ))}
-
-
-
-
-    </ul> */}
     </>
   )
-
-
-
-
 
 }
 
