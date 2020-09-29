@@ -18,40 +18,40 @@ const initialState = {
       description: 'live plants fake plants green plants yellow plants',
     },
   ],
-  activeCategory: 'food',
+  activeCategory: 'Food',
   products: [
     {
-      category: 'food',
+      category: 'Food',
       name: 'Some Snacks',
       description: 'This is a delicious snack I think you will like it buy it try it',
       price: '1.99',
       inventoryCount: 10,
     },
     {
-      category: 'socks',
+      category: 'Socks',
       name: 'Toe Socks',
       description: 'Socks with a cozy spot for each toe',
       price: '7.99',
       inventoryCount: 20,
     },
     {
-      category: 'socks',
+      category: 'Socks',
       name: 'Socks for Birkenstocks',
       description: 'Tall socks with extra toe padding',
       price: '10.99',
       inventoryCount: 20,
     },
     {
-      category: 'plants',
+      category: 'Plants',
       name: 'Fern',
       description: 'Fun little maidenhair fern for your home',
       price: '4.99',
       inventoryCount: 30,
     },
-  ]
-}
+  ],
+};
 
-// define reducer
+// define REDUCER
 // action has a type and a payload (whatever addtl info is required, kind of like a body to a POST)
 // reducer takes what you give it and does something accordingly
 export default (state = initialState, action) => {
