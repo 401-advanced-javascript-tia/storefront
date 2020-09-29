@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { chooseCategory } from '../../store/products-categories.js';
 
 function Categories(props) {
 
@@ -12,9 +13,9 @@ function Categories(props) {
     <h2>Browse Categories</h2>
     <ul>
 
-    {Object.keys(props.categories).map(category => (
+    {props.categories.map(category => (
 
-      <li>{category}</li>
+      <li key={category.normalizedName} onClick={() => props.chooseCategory(category.normalizedName)}>{category.displayName}</li>
       
       ))}
 
@@ -32,4 +33,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps) (Categories);
+const mapDispatchToProps = {
+  chooseCategory,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (Categories);

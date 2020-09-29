@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 function CurrentCategory(props) {
 
+  console.log('++++PROPS in CurrentCategory', props);
+
   return (
     <>
     <h1>Current Category: {props.activeCategory}</h1>

@@ -1,47 +1,47 @@
 // define initial state, this will have stuff for products and categories
 
 const initialState = {
-  categories: {
-    food: {
+  categories: [
+    {
       normalizedName: 'food',
-      displayName: 'Food Stuffs',
+      displayName: 'Food',
       description: 'Noms and noms and more noms',
     },
-    socks: {
+    {
       normalizedName: 'socks',
-      displayName: 'All the Socks',
+      displayName: 'Socks',
       description: 'Tall socks, short socks, sneaker socks, birkenstocks',
     },
-    plants: {
+    {
       normalizedName: 'plants',
-      displayName: 'Plant Things',
+      displayName: 'Plants',
       description: 'live plants fake plants green plants yellow plants',
     },
-  },
-  activeCategory: 'electronics',
-  products: {
-    snack: {
+  ],
+  activeCategory: 'food',
+  products: [
+    {
       category: 'food',
       name: 'Some Snacks',
       description: 'This is a delicious snack I think you will like it buy it try it',
       price: '1.99',
       inventoryCount: 10,
     },
-    tallSock: {
+    {
       category: 'socks',
       name: 'Toe Socks',
       description: 'Socks with a cozy spot for each toe',
       price: '7.99',
       inventoryCount: 20,
     },
-    fern: {
+    {
       category: 'plants',
       name: 'Fern',
       description: 'Fun little maidenhair fern for your home',
       price: '4.99',
       inventoryCount: 30,
     },
-  }
+  ]
 }
 
 // define reducer
@@ -54,6 +54,16 @@ export default (state = initialState, action) => {
 
   switch(type) {
 
+    case 'CATEGORYCHOSEN':
+
+    console.log('CATEGORY CHOSEN:', payload);
+    // I'm getting the name of the thing that was clicked on, what now!
+
+    let activeCategory = payload;
+
+    return {...state, activeCategory };
+
+
     default:
       return state;
   }
@@ -63,3 +73,10 @@ export default (state = initialState, action) => {
 
 // TODO
 // define action creators, function that gives you the action object
+
+export const chooseCategory = (category) => {
+  return {
+    type: 'CATEGORYCHOSEN',
+    payload: category,
+  };
+};
