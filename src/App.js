@@ -1,24 +1,21 @@
 import React from 'react';
 
-// import './App.css';
+import Header from '../src/components/header/header.js';
+import Footer from '../src/components/footer/footer.js';
+import Categories from '../src/components/storefront/categories.js'
+import CurrentCategory from '../src/components/storefront/current-category.js';
+import Products from '../src/components/storefront/products.js';
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Categories />
+      <CurrentCategory />
+      <Products />
+      <Footer />
     </div>
   );
 }
