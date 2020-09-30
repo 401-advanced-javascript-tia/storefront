@@ -61,20 +61,20 @@ export default (state = initialState, action) => {
 
   switch(type) {
 
-    case 'CATEGORYCHOSEN':
+  case 'CATEGORYCHOSEN':
 
     console.log('CATEGORY CHOSEN:', payload);
-    // I'm getting the name of the thing that was clicked on, what now!
+  
 
     let activeCategory = payload;
 
     return {...state, activeCategory };
 
 
-    default:
-      return state;
+  default:
+    return state;
   }
-}
+};
 
 
 

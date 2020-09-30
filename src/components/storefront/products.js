@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { addToCart } from '../../store/cart.js';
+
 import {Container, Grid, Card, CardHeader, CardContent, CardActions, Button, Typography, Paper } from '@material-ui/core';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -62,7 +64,7 @@ function Products(props) {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button variant='outlined' color="primary">Click Me</Button>
+                <Button variant='outlined' color="primary" onClick={() => props.addToCart(product.name)}>Add to Cart</Button>
               </CardActions>
             </Card>
 
@@ -90,4 +92,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps) (Products);
+const mapDispatchToProps = {
+  addToCart,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (Products);

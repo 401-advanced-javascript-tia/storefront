@@ -41,7 +41,7 @@ function Header() {
     <AppBar position="static" color="primary" elevation={0} className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
         <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
-          THIS IS A STUFF STORE
+          THIS IS A STUFF STORE Cart( )
         </Typography>
       </Toolbar>
     </AppBar>
