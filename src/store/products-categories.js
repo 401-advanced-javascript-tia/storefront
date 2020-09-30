@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 // define initial state, this will have stuff for products and categories
 
 const initialState = {
@@ -56,12 +57,13 @@ const initialState = {
 // reducer takes what you give it and does something accordingly
 export default (state = initialState, action) => {
 
-  //peel each thing off the action and inspect the types using a switch statement
+  console.log('!@#$%^ action in og reducer:', action);
+
   const { type, payload } = action;
 
   switch(type) {
 
-  case 'CATEGORYCHOSEN':
+  case 'CATEGORY_CHOSEN':
 
     console.log('CATEGORY CHOSEN:', payload);
   
@@ -69,6 +71,30 @@ export default (state = initialState, action) => {
     let activeCategory = payload;
 
     return {...state, activeCategory };
+
+  case 'ADDTOCART':
+
+    console.log('ADDTOCART in og reducer:', payload);
+
+    //payload is name of item added to cart 
+    // "Some Snacks"
+
+    let updatedProducts = state.products.map(product => {
+
+      console.log('********** product:', product);
+
+      if(product.name === payload.name) {
+        product.inventoryCount--;
+      }
+
+      return product;
+
+    });
+
+    console.log('productToDecrement: ', updatedProducts);
+
+    return {...state, products: updatedProducts};
+
 
 
   default:
@@ -81,7 +107,7 @@ export default (state = initialState, action) => {
 
 export const chooseCategory = (category) => {
   return {
-    type: 'CATEGORYCHOSEN',
+    type: 'CATEGORY_CHOSEN',
     payload: category,
   };
 };

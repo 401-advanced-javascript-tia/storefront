@@ -64,7 +64,7 @@ function Products(props) {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button variant='outlined' color="primary" onClick={() => props.addToCart(product.name)}>Add to Cart</Button>
+                <Button variant='outlined' color="primary" onClick={() => props.addToCart(product)}>Add to Cart</Button>
               </CardActions>
             </Card>
 

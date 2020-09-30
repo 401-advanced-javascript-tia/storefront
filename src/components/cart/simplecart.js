@@ -34,7 +34,7 @@ function SimpleCart(props) {
       
       <List component="nav" aria-label="cart list">
         <ListItem>
-          <ListItemText primary={item} />
+          <ListItemText primary={item.name} />
           <IconButton><ClearIcon></ClearIcon></IconButton>
         </ListItem>
       </List>
@@ -54,6 +54,8 @@ function SimpleCart(props) {
 const mapStatetoProps = (state) => {
 
   console.log('!!!!!!!! state in simplecart.js: ', state);
+
+  // DO SOMETHING HERE TO decrement num inventory from DIFFERENT STATE, FROM THE PRODUCTS STATE???
 
   return {
     cartState: state.cart.cart,

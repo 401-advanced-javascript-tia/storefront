@@ -12,9 +12,12 @@ export default (state = initialState, action) => {
 
   case 'ADDTOCART':
 
-    let cart = [payload];
+    // let cart = [payload];
+    // payload is whole product item
+    // payload.name is the whole name
+    console.log('&&&&&&&&& payload:', payload);
 
-    return {...state, cart};
+    return {...state, cart: [...state.cart, payload]};
 
   default:
     return state;
@@ -22,12 +25,12 @@ export default (state = initialState, action) => {
 
 }
 
-export const addToCart = (itemName) => {
+export const addToCart = (product) => {
 
-  console.log('ITEM in cart store:', itemName);
+  console.log('PRODUCT in cart store:', product);
 
   return {
     type: 'ADDTOCART',
-    payload: itemName,
+    payload: product,
   };
 };
