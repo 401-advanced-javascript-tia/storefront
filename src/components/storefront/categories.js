@@ -2,25 +2,62 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { chooseCategory } from '../../store/products-categories.js';
 
+import {Box, ButtonGroup, Button, CssBaseline} from '@material-ui/core';
+
+
+import { makeStyles } from '@material-ui/core/styles';
+
+
+const useStyles = makeStyles((theme) => ({
+  '@global': {
+    ul: {
+      margin: 0,
+      padding: 0,
+      listStyle: 'none',
+    },
+  },
+  heroContent: {
+    padding: theme.spacing(8, 0, 6),
+  },
+  browseCategories: {
+    padding: 4,
+    margin: 4,
+  },
+}));
+
+
 function Categories(props) {
 
-  // let props = {
-  //   categories: 'Seeded stuff in storefront/categories.js',
-  // }
+
+  const classes = useStyles();
+
 
   return (
+    
     <>
-    <h2>Browse Categories</h2>
-    <ul>
+
+    <CssBaseline />
+
+
+
+
+    <Box>
+
+
+    <h2 className={classes.browseCategories}>Browse Categories</h2>
+    <ButtonGroup variant="text" color="primary" aria-label="text primary button group">
 
     {props.categories.map(category => (
-
-      <li key={category.normalizedName} onClick={() => props.chooseCategory(category.normalizedName)}>{category.displayName}</li>
       
-      ))}
+      <Button key={category.normalizedName} onClick={() => props.chooseCategory(category.displayName)}>
+        {category.displayName}
+      </Button>
 
+    ))}
 
-    </ul>
+    </ButtonGroup>
+
+    </Box>
     </>
   )
 }
