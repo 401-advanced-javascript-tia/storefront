@@ -32,7 +32,7 @@ function Products(props) {
 
   console.log('#### props in Products module:', props);
 
-  const productList = props.state.products.filter(product => product.category === props.state.activeCategory);
+  const productList = props.state.products.filter(product => product.category === props.state.activeCategory && product.inventoryCount > 0);
 
   // productList is now an array of objects that have that category name
 

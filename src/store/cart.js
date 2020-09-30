@@ -1,7 +1,7 @@
 // define initial state for the cart
 
 const initialState = {
-  cart: 'one item',
+  cart: [],
 };
 
 export default (state = initialState, action) => {
@@ -12,7 +12,7 @@ export default (state = initialState, action) => {
 
   case 'ADDTOCART':
 
-    let cart = payload;
+    let cart = [payload];
 
     return {...state, cart};
 

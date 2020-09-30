@@ -1,12 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import {AppBar, CssBaseline, Toolbar, Typography } from '@material-ui/core';
-
-// import CssBaseline from '@material-ui/core/CssBaseline';
-
-// import Toolbar from '@material-ui/core/Toolbar';
-
-// import Typography from '@material-ui/core/Typography';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -30,9 +25,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function Header() {
+function Header(props) {
 
   const classes = useStyles();
+
+  const numItemsInCart = props.cartState.length;
 
   return (
     <>
@@ -41,7 +38,7 @@ function Header() {
     <AppBar position="static" color="primary" elevation={0} className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
         <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
-          THIS IS A STUFF STORE Cart( )
+          THIS IS A STUFF STORE Cart ({numItemsInCart})
         </Typography>
       </Toolbar>
     </AppBar>
@@ -51,4 +48,13 @@ function Header() {
   );
 }
 
-export default Header;
+const mapStatetoProps = (state) => {
+
+  return {
+    cartState: state.cart.cart,
+  }
+}
+
+
+
+export default connect(mapStatetoProps)(Header);

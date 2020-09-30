@@ -39,7 +39,7 @@ const initialState = {
       name: 'Socks for Birkenstocks',
       description: 'Tall socks with extra toe padding',
       price: '10.99',
-      inventoryCount: 20,
+      inventoryCount: 30,
     },
     {
       category: 'Plants',
@@ -77,8 +77,6 @@ export default (state = initialState, action) => {
 };
 
 
-
-// TODO
 // define action creators, function that gives you the action object
 
 export const chooseCategory = (category) => {
