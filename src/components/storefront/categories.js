@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { chooseCategory } from '../../store/products-categories.js';
 
-import {ButtonGroup, Button} from '@material-ui/core';
+import {Box, ButtonGroup, Button, CssBaseline} from '@material-ui/core';
 
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -19,6 +19,10 @@ const useStyles = makeStyles((theme) => ({
   heroContent: {
     padding: theme.spacing(8, 0, 6),
   },
+  browseCategories: {
+    padding: 4,
+    margin: 4,
+  },
 }));
 
 
@@ -32,30 +36,28 @@ function Categories(props) {
     
     <>
 
-    <h2>Browse Categories</h2>
+    <CssBaseline />
 
 
 
 
+    <Box>
 
+
+    <h2 className={classes.browseCategories}>Browse Categories</h2>
     <ButtonGroup variant="text" color="primary" aria-label="text primary button group">
 
     {props.categories.map(category => (
+      
+      <Button key={category.normalizedName} onClick={() => props.chooseCategory(category.displayName)}>
+        {category.displayName}
+      </Button>
 
-<Button key={category.normalizedName} onClick={() => props.chooseCategory(category.displayName)}>{category.displayName}</Button>
-
-))}
+    ))}
 
     </ButtonGroup>
 
-
-
-    <ul>
-
-
-
-
-    </ul>
+    </Box>
     </>
   )
 }

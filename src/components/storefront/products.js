@@ -1,6 +1,31 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import {Container, Grid, Card, CardHeader, CardContent, CardActions, Button, Typography, Paper } from '@material-ui/core';
+
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  '@global': {
+    ul: {
+      margin: 0,
+      padding: 0,
+      listStyle: 'none',
+    },
+  },
+  appBar: {
+    borderBottom: `1px solid ${theme.palette.divider}`,
+  },
+  toolbarTitle: {
+    flex: 1,
+  },
+  fullHeight: {
+    height: "100%"
+  },
+}));
+
+
+
 function Products(props) {
 
   console.log('#### props in Products module:', props);
@@ -11,30 +36,47 @@ function Products(props) {
 
   console.log('productList : ', productList);
 
+  const classes = useStyles();
+
+
 
   return (
     <>
-    <h2>Products:</h2>
+      <Container maxWidth="md" component="main">
+        <Grid container spacing={5} alignItems="stretch">
+          <Grid item xs={12} sm={6} md={4}>
 
-    <ul>
+            {productList.map(product => (
+
+            <Card>
+              <CardHeader title="Card 1"
+                titleTypographyProps={{ align: 'center' }}
+                className={classes.cardHeader}
+                />
+              <CardContent>
+                <Typography variant="h5" color="textPrimary">
+                {product.name}
+                </Typography>
+                <Typography variant="p" color="textSecondary">
+                {product.description}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button variant='outlined' color="primary">Click Me</Button>
+              </CardActions>
+            </Card>
+
+            ))}
 
 
-    {productList.map(product => (
-      <>
-      <br/>
+          </Grid>
+        </Grid>
+      </Container>
 
-      <li key={product.name}>{product.name}</li>
-      <li key={product.description}>{product.description}</li>
+</>
 
-      </>
+)
 
-      ))}
-
-    
-    </ul>
-
-    </>
-  )
 
 }
 
