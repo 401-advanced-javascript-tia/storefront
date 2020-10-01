@@ -47,8 +47,8 @@ function ActiveCategory(props) {
 // use state.___ name of the reduce when we combined reducers
 const mapStateToProps = (state) => {
   return {
-    activeCategory: state.products.activeCategory,
-    categories: state.products.categories,
+    activeCategory: state.categories.activeCategory,
+    categories: state.categories.categories,
   }
 }
 

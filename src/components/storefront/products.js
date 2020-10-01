@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { addToCart } from '../../store/cart.js';
 
-import {Container, Grid, Card, CardHeader, CardContent, CardActions, Button, Typography, Paper } from '@material-ui/core';
+import { Container, Grid, Card, CardHeader, CardContent, CardActions, Button, Typography } from '@material-ui/core';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -32,7 +32,7 @@ function Products(props) {
 
   console.log('#### props in Products module:', props);
 
-  const productList = props.state.products.filter(product => product.category === props.state.activeCategory && product.inventoryCount > 0);
+  const productList = props.products.products.filter(product => product.category === props.activeCategory && product.inventoryCount > 0);
 
   // productList is now an array of objects that have that category name
 
@@ -50,7 +50,7 @@ function Products(props) {
 
             {productList.map(product => (
 
-            <Card>
+            <Card key={product.name}>
               <CardHeader title="Card 1"
                 titleTypographyProps={{ align: 'center' }}
                 className={classes.cardHeader}
@@ -59,7 +59,7 @@ function Products(props) {
                 <Typography variant="h5" color="textPrimary">
                 {product.name}
                 </Typography>
-                <Typography variant="p" color="textSecondary">
+                <Typography variant="h6" color="textSecondary">
                 {product.description}
                 </Typography>
               </CardContent>
@@ -88,7 +88,8 @@ const mapStateToProps = (state) => {
   console.log('----- state in products module:', state);
 
   return {
-    state: state.products,
+    products: state.products,
+    activeCategory: state.categories.activeCategory,
   }
 }
 

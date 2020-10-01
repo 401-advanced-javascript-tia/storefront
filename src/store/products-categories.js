@@ -2,24 +2,24 @@
 // define initial state, this will have stuff for products and categories
 
 const initialState = {
-  categories: [
-    {
-      normalizedName: 'food',
-      displayName: 'Food',
-      description: 'Noms and noms and more noms',
-    },
-    {
-      normalizedName: 'socks',
-      displayName: 'Socks',
-      description: 'Tall socks, short socks, sneaker socks, birkenstocks',
-    },
-    {
-      normalizedName: 'plants',
-      displayName: 'Plants',
-      description: 'live plants fake plants green plants yellow plants',
-    },
-  ],
-  activeCategory: 'Food',
+  // categories: [
+  //   {
+  //     normalizedName: 'food',
+  //     displayName: 'Food',
+  //     description: 'Noms and noms and more noms',
+  //   },
+  //   {
+  //     normalizedName: 'socks',
+  //     displayName: 'Socks',
+  //     description: 'Tall socks, short socks, sneaker socks, birkenstocks',
+  //   },
+  //   {
+  //     normalizedName: 'plants',
+  //     displayName: 'Plants',
+  //     description: 'live plants fake plants green plants yellow plants',
+  //   },
+  // ],
+  // activeCategory: 'Food',
   products: [
     {
       category: 'Food',
@@ -63,14 +63,14 @@ export default (state = initialState, action) => {
 
   switch(type) {
 
-  case 'CATEGORY_CHOSEN':
+  // case 'CATEGORY_CHOSEN':
 
-    console.log('CATEGORY CHOSEN:', payload);
+  //   console.log('CATEGORY CHOSEN:', payload);
   
 
-    let activeCategory = payload;
+  //   let activeCategory = payload;
 
-    return {...state, activeCategory };
+  //   return {...state, activeCategory };
 
   case 'ADDTOCART':
 
@@ -105,9 +105,9 @@ export default (state = initialState, action) => {
 
 // define action creators, function that gives you the action object
 
-export const chooseCategory = (category) => {
-  return {
-    type: 'CATEGORY_CHOSEN',
-    payload: category,
-  };
-};
+// export const chooseCategory = (category) => {
+//   return {
+//     type: 'CATEGORY_CHOSEN',
+//     payload: category,
+//   };
+// };
