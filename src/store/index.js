@@ -4,7 +4,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import products from './products-categories.js';
+import products from './products.js';
 import cart from './cart.js';
 import categories from './categories.js';
 

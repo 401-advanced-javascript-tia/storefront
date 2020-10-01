@@ -12,11 +12,6 @@ export default (state = initialState, action) => {
 
   case 'ADD_TO_CART':
 
-    // let cart = [payload];
-    // payload is whole product item
-    // payload.name is the whole name
-    console.log('&&&&&&&&& payload:', payload);
-
     return {...state, cart: [...state.cart, payload]};
 
 
@@ -44,7 +39,7 @@ export const addToCart = (product) => {
     type: 'ADD_TO_CART',
     payload: product,
   };
-  
+
 };
 
 export const removeFromCart = (product) => {

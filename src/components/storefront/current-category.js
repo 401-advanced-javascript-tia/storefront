@@ -20,7 +20,11 @@ const useStyles = makeStyles((theme) => ({
 
 function ActiveCategory(props) {
 
-  const catObj = props.categories.filter(category => category.displayName === props.activeCategory)
+  console.log('props in ACTIVE CAT', props);
+
+  const catObj = props.categories.filter(category => category.name === props.activeCategory)
+
+  console.log('catOBJ in ACTIVE CAT:   ', catObj);
 
   const classes = useStyles();
 
@@ -38,8 +42,6 @@ function ActiveCategory(props) {
       </Container>
 
 
-    {/* <h1>Current Category: </h1>
-    <h2>Description: </h2> */}
     </>
   )
 }
