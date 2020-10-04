@@ -20,11 +20,7 @@ const useStyles = makeStyles((theme) => ({
 
 function ActiveCategory(props) {
 
-  console.log('props in ACTIVE CAT', props);
-
   const catObj = props.categories.filter(category => category.name === props.activeCategory)
-
-  console.log('catOBJ in ACTIVE CAT:   ', catObj);
 
   const classes = useStyles();
 
@@ -46,7 +42,6 @@ function ActiveCategory(props) {
   )
 }
 
-// use state.___ name of the reduce when we combined reducers
 const mapStateToProps = (state) => {
   return {
     activeCategory: state.categories.activeCategory,

@@ -30,9 +30,6 @@ export default (state = initialState, action) => {
 
 
 
-
-
-
 export const addToCart = (product) => {
 
   return {

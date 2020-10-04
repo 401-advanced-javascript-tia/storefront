@@ -21,8 +21,6 @@ function SimpleCart(props) {
 
   const classes = useStyles();
 
-  console.log('PROPS in simplecart: ', props);
-
   const cartItemsArr = props.cartState;
 
 
@@ -54,10 +52,6 @@ function SimpleCart(props) {
 }
 
 const mapStatetoProps = (state) => {
-
-  console.log('!!!!!!!! state in simplecart.js: ', state);
-
-  // DO SOMETHING HERE TO decrement num inventory from DIFFERENT STATE, FROM THE PRODUCTS STATE???
 
   return {
     cartState: state.cart.cart,

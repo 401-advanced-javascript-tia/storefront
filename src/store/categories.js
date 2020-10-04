@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-
-
 const initialState = {
   categories: [{
     _id: 1,
@@ -40,20 +38,16 @@ export default (state=initialState, action) => {
 
   case 'CATEGORY_CHOSEN':
 
-    console.log('CATEGORY CHOSEN:', payload);
-  
-
     let activeCategory = payload;
 
     return {...state, activeCategory };
 
+
   case 'UPDATE_CATEGORIES':
-
-
-  
 
     return {...state, categories: payload};
 
+    
 
   default:
 
@@ -87,7 +81,6 @@ export function getCategories() {
     });
 
   };
-
 
 }
 

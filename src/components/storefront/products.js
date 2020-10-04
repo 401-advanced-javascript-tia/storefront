@@ -39,17 +39,9 @@ function Products(props) {
     props.getProducts();
   }, [props.getProducts])
 
-  console.log('#### props in Products module:', props);
-
   const productList = props.products.filter(product => product.category === props.activeCategory && product.inStock > 0);
 
-  // productList is now an array of objects that have that category name
-
-  console.log('productList : ', productList);
-
   const classes = useStyles();
-
-
 
   return (
     <>
@@ -59,12 +51,11 @@ function Products(props) {
 
             {productList.map(product => (
 
-
-
             <Card key={product.name} className={classes.card}>
-              <CardHeader title="Card 1"
+
+
+              <CardHeader title="photo coming soon..."
                 titleTypographyProps={{ align: 'center' }}
-                className={classes.cardHeader}
                 />
               <CardContent>
                 <Typography variant="h5" color="textPrimary">
@@ -79,10 +70,6 @@ function Products(props) {
               </CardActions>
             </Card>
 
-
-
-
-
             ))}
 
 
@@ -94,13 +81,10 @@ function Products(props) {
 
 )
 
-
 }
 
-// use state.___ name of the reduce when we combined reducers
-const mapStateToProps = (state) => {
 
-  console.log('----- state in products module:', state);
+const mapStateToProps = (state) => {
 
   return {
     products: state.products.products,

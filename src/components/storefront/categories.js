@@ -32,11 +32,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Categories(props) {
 
-  console.log('CATEGORIES&&&&&&&', props);
-
-
   const classes = useStyles();
-
 
   useEffect(() => {
   props.getCategories();
@@ -49,18 +45,14 @@ function Categories(props) {
 
     <CssBaseline />
 
-
-
-
     <Box>
-
 
     <h2 className={classes.browseCategories}>Browse Categories</h2>
     <ButtonGroup variant="text" color="primary" aria-label="text primary button group">
 
     {props.categoryList.categories.map(category => (
       
-      <Button key={category._id} onClick={() => props.chooseCategory(category.name)}>
+      <Button key={category.name} onClick={() => props.chooseCategory(category.name)}>
         {category.name}
       </Button>
 
