@@ -49,7 +49,7 @@ export default (state=initialState, action) => {
 
   case 'UPDATE_CATEGORIES':
 
-    console.log('GOT HERE TOOO   WOOPWOOOOOOOP!!!!!!');
+
   
 
     return {...state, categories: payload};
@@ -77,7 +77,7 @@ export function getCategories() {
 
   return async function (dispatch) {
 
-    // tried .env file in src and outside of src, neither worked. looking more into this. 
+    // tried .env file in src and outside of src, neither worked
     const response = await axios.get('https://api-js401.herokuapp.com/api/v1/categories');
 
 
