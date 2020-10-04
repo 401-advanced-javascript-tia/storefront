@@ -1,5 +1,5 @@
 import React from 'react';
-import { CssBaseline, Grid, Typography, Link, Container } from '@material-ui/core';
+import { CssBaseline, Grid, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -30,7 +30,7 @@ function Footer() {
 
 
         <Container maxWidth="lg" component="footer" className={classes.footer}>
-          <Grid container spacing={4} justify="left">
+          <Grid container spacing={4} justify="flex-start">
 
             <footer>&copy; 401 JavaScript - Tia Low</footer>
 

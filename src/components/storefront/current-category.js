@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 
 function ActiveCategory(props) {
 
-  const catObj = props.categories.filter(category => category.displayName === props.activeCategory)
+  const catObj = props.categories.filter(category => category.name === props.activeCategory)
 
   const classes = useStyles();
 
@@ -38,17 +38,14 @@ function ActiveCategory(props) {
       </Container>
 
 
-    {/* <h1>Current Category: </h1>
-    <h2>Description: </h2> */}
     </>
   )
 }
 
-// use state.___ name of the reduce when we combined reducers
 const mapStateToProps = (state) => {
   return {
-    activeCategory: state.products.activeCategory,
-    categories: state.products.categories,
+    activeCategory: state.categories.activeCategory,
+    categories: state.categories.categories,
   }
 }
 

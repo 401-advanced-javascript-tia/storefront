@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { chooseCategory } from '../../store/products-categories.js';
+
+import { chooseCategory } from '../../store/categories.js';
+
+import { getCategories } from '../../store/categories.js';
+
 
 import {Box, ButtonGroup, Button, CssBaseline} from '@material-ui/core';
 
@@ -28,8 +32,11 @@ const useStyles = makeStyles((theme) => ({
 
 function Categories(props) {
 
-
   const classes = useStyles();
+
+  useEffect(() => {
+  props.getCategories();
+  }, [props.getCategories])
 
 
   return (
@@ -38,19 +45,15 @@ function Categories(props) {
 
     <CssBaseline />
 
-
-
-
     <Box>
-
 
     <h2 className={classes.browseCategories}>Browse Categories</h2>
     <ButtonGroup variant="text" color="primary" aria-label="text primary button group">
 
-    {props.categories.map(category => (
+    {props.categoryList.categories.map(category => (
       
-      <Button key={category.normalizedName} onClick={() => props.chooseCategory(category.displayName)}>
-        {category.displayName}
+      <Button key={category.name} onClick={() => props.chooseCategory(category.name)}>
+        {category.name}
       </Button>
 
     ))}
@@ -66,12 +69,13 @@ function Categories(props) {
 // state.reduceName.thingInStateYouWantToAccess
 const mapStateToProps = (state) => {
   return {
-    categories: state.products.categories,
+    categoryList: state.categories,
   }
 }
 
 const mapDispatchToProps = {
   chooseCategory,
+  getCategories,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps) (Categories);
